@@ -1,12 +1,15 @@
-package com.booleanuk.core;
+package com.booleanuk.core.items;
 
-public class Article {
-    String title;
-
+public abstract class LibraryItem {
+    private String title;
     boolean onLoan = false;
-
-    public Article(String title) {
+    
+      public LibraryItem(String title) {
         this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public boolean isOnLoan() {
@@ -17,9 +20,7 @@ public class Article {
         if (!this.isOnLoan()) {
             return "item is not currently on loan";
         }
-
         this.onLoan = false;
-
         return "item has been checked in";
     }
 
@@ -27,9 +28,7 @@ public class Article {
         if (this.isOnLoan()) {
             return "item is currently on loan";
         }
-
         this.onLoan = true;
-
         return "item has been checked out";
     }
 }
